@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Home from "../components/home/Home";
 import Profile from "../components/profile/Profile";
 import Settings from "../components/settings/Settings";
 
-export const routes = (setmyMOde) => createBrowserRouter([
+export const routes = (setmyMOde) => createHashRouter([
     {
         path: "/",
         element: <Home setmyMOde={setmyMOde} />
