@@ -7,8 +7,11 @@ import {
   ListItemText
 } from "@mui/material";
 import { menuItems } from "../settingsData/settingsData";
+import { useTranslation } from "react-i18next";
 
 const SettingsSidebar = ({ active, setActive }) => {
+  const { t } = useTranslation();
+
   return (
     <Paper sx={{ borderRadius: 3 }}>
       <List>
@@ -28,7 +31,7 @@ const SettingsSidebar = ({ active, setActive }) => {
             >
               {item.icon}
             </ListItemIcon>
-            <ListItemText primary={item.label} />
+            <ListItemText primary={t(item.label)} />
           </ListItemButton>
         ))}
       </List>

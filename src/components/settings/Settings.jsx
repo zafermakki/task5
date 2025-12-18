@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import SettingsSidebar from "./settingsSidebar/SettingsSidebar";
 import SettingsContent from "./settingsContent/SettingsContent";
+import { useTranslation } from "react-i18next";
 
 const Settings = () => {
   const [active, setActive] = useState("account");
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -15,7 +17,7 @@ const Settings = () => {
       }}
     >
       <Typography variant="h4" fontWeight="bold" mb={3} sx={{color: "#2196f3"}}>
-        Settings
+        {t("Settings")}
       </Typography>
 
       <Grid container spacing={3}>

@@ -1,7 +1,9 @@
 import React from "react";
 import { Grid, Avatar, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const ProfileHeader = () => {
+  const { t } = useTranslation();
   return (
     <Grid
       item
@@ -20,7 +22,7 @@ const ProfileHeader = () => {
       />
 
       <Typography variant="h6" fontWeight="bold">
-        Zafer Makki
+        {t("Zafer_Makki")}
       </Typography>
 
       <Typography color="text.secondary">

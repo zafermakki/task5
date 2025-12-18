@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const ProfileActions = () => {
+  const { t } = useTranslation();
+
   return (
     <Box mt={4} display="flex" gap={2} flexWrap="wrap">
       <Button
@@ -9,7 +12,7 @@ const ProfileActions = () => {
         color="primary"
         sx={{ px: 4 }}
       >
-        Edit Profile
+        {t("Edit_Profile")}
       </Button>
 
       <Button
@@ -17,7 +20,7 @@ const ProfileActions = () => {
         color="error"
         sx={{ px: 4 }}
       >
-        Logout
+        {t("Logout")}
       </Button>
     </Box>
   );

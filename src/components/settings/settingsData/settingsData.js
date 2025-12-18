@@ -12,35 +12,35 @@ export const menuItems = [
 
 export const settingsContent = {
   account: {
-    title: "Account Settings",
+    title: "Account_Settings",
     options: [
-      { label: "Email Notifications", checked: true },
-      { label: "Account Activity Alerts" },
-      { label: "Weekly Reports", checked: true }
+      { label: "Email_Notifications", checked: true },
+      { label: "Account_Activity_Alerts" },
+      { label: "Weekly_Reports", checked: true }
     ]
   },
   security: {
     title: "Security",
     options: [
-      { label: "Two-Factor Authentication" },
-      { label: "Login Alerts", checked: true },
-      { label: "Device Verification", checked: true }
+      { label: "Two_Factor_Authentication" },
+      { label: "Login_Alerts", checked: true },
+      { label: "Device_Verification", checked: true }
     ]
   },
   appearance: {
     title: "Appearance",
     options: [
-      { label: "Dark Mode" },
-      { label: "Compact Layout" },
+      { label: "Dark_Mode" },
+      { label: "Compact_Layout" },
       { label: "Animations", checked: true }
     ]
   },
   privacy: {
     title: "Privacy",
     options: [
-      { label: "Public Profile", checked: true },
-      { label: "Search Engine Indexing" },
-      { label: "Data Sharing" }
+      { label: "Public_Profile", checked: true },
+      { label: "Search_Engine_Indexing" },
+      { label: "Data_Sharing" }
     ]
   }
 };

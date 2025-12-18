@@ -8,10 +8,12 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -28,15 +30,15 @@ const HeroSection = () => {
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography variant={isMobile ? "h4" : "h3"} fontWeight="bold">
-              Build Modern React Apps
+              {t("Build_Modern_React_Apps")}
             </Typography>
 
             <Typography sx={{ mt: 2, opacity: 0.8 }}>
-              Responsive and clean UI using Material UI.
+              {t("Responsive_and_clean_UI_using_Material_UI")}
             </Typography>
 
             <Button variant="contained" size="large" sx={{ mt: 4 }}>
-              Get Started
+              {t("Get_Started")}
             </Button>
           </Grid>
 

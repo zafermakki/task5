@@ -16,6 +16,8 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { useTheme } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
+import i18n from "../../../i18n";
+import { useTranslation } from "react-i18next";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -26,6 +28,7 @@ const navItems = [
 const Navbar = ({ setmyMOde }) => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const toggleDrawer = (state) => () => {
     setOpen(state);
@@ -35,12 +38,17 @@ const Navbar = ({ setmyMOde }) => {
     setmyMOde((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("lang", lng);
+  };
+
   return (
     <>
       <AppBar position="sticky" elevation={0}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Typography variant="h6" fontWeight="bold">
-            MyApp
+          {t("MyApp")}
           </Typography>
 
           {/* Desktop Menu */}
@@ -64,9 +72,28 @@ const Navbar = ({ setmyMOde }) => {
                   },
                 }}
               >
-                {item.label}
+                {t(item.label)}
               </Button>
+              
             ))}
+            <Box sx={{ display: "flex", gap: 1 }}>
+            <Button
+                variant="contained"
+                size="small"
+                onClick={() => changeLanguage("ar")}
+              >
+                AR
+              </Button>
+
+              <Button
+                variant="contained"
+                size="small"
+                onClick={() => changeLanguage("en")}
+              >
+                EN
+              </Button>
+            </Box>
+
 
             {/* 🌙☀️ Toggle Theme Button */}
             <IconButton onClick={toggleMode} color="inherit">
@@ -89,7 +116,11 @@ const Navbar = ({ setmyMOde }) => {
       </AppBar>
 
       {/* Mobile Drawer */}
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+      <Drawer
+        anchor={i18n.language === "ar" ? "left" : "right"}
+        open={open}
+        onClose={toggleDrawer(false)}
+      >
         <Box sx={{ width: 250 }}>
           <List>
             {navItems.map((item) => (
@@ -105,9 +136,22 @@ const Navbar = ({ setmyMOde }) => {
                   },
                 }}
               >
-                <ListItemText primary={item.label} />
+                <ListItemText primary={t(item.label)} />
               </ListItem>
             ))}
+            <ListItem>
+              <ListItemText onClick={() => changeLanguage("ar")}>
+                AR
+              </ListItemText>
+            </ListItem>
+
+            <ListItem>
+              <ListItemText onClick={() => changeLanguage("en")}>
+                EN
+              </ListItemText>
+            </ListItem>
+
+
 
             {/* 🌙☀️ Toggle Theme (Mobile) */}
             <ListItem button onClick={toggleMode}>

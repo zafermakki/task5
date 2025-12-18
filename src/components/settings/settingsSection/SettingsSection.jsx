@@ -1,11 +1,13 @@
 import React from "react";
 import { Typography, Divider, Box, Switch } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const SettingsSection = ({ title, options }) => {
+  const { t } = useTranslation();
   return (
     <>
       <Typography variant="h6" fontWeight="bold" mb={2}>
-        {title}
+        {t(title)}
       </Typography>
 
       <Divider sx={{ mb: 3 }} />
@@ -18,7 +20,7 @@ const SettingsSection = ({ title, options }) => {
           alignItems="center"
           mb={2}
         >
-          <Typography>{item.label}</Typography>
+          <Typography>{t(item.label)}</Typography>
           <Switch defaultChecked={item.checked} />
         </Box>
       ))}
